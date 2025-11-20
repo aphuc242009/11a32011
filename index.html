@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chúc mừng ngày Nhà giáo Việt Nam 20/11</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg,#faf5ef 0%,#fff8ee 100%);
+      color:#3e2d1b;
+      min-height:100vh;
+      overflow-x:hidden;
+      position:relative;
+    }
+
+    /* Hero Header */
+    .hero {
+      text-align:center;
+      padding:40px 20px 30px;
+      background:linear-gradient(180deg,rgba(255,255,255,0.9) 0%,transparent 100%);
+    }
+    .hero h1 { font-size:2.5rem; margin-bottom:10px; color:#c45b2d; text-shadow:2px 2px 4px rgba(0,0,0,0.1); }
+    .hero p { color:#6b4f36; font-size:1.1rem; }
+
+    /* Question Section */
+    .question-section { max-width:900px; margin:0 auto 30px; padding:0 20px; text-align:center; }
+    .question-label { display:block; margin-bottom:20px; font-size:1.3rem; font-weight:600; color:#6b4f36; }
+    .subjects-grid { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; padding:20px; }
+    .subject-btn {
+      background: linear-gradient(180deg,#fff 0%,#faf5ef 100%);
+      border:2px solid #f0d8b7;
+      padding:14px 24px;
+      border-radius:12px;
+      cursor:pointer;
+      min-width:100px;
+      text-align:center;
+      font-size:1rem;
+      font-weight:500;
+      color:#5c4733;
+      position:relative;
+      overflow:hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+    .subject-btn::before {
+      content:''; position:absolute; top:50%; left:50%; width:0; height:0;
+      border-radius:50%;
+      background: rgba(196,91,45,0.1);
+      transform: translate(-50%,-50%);
+      transition: width 0.6s,height 0.6s;
+    }
+    .subject-btn:hover::before { width:300px;height:300px; }
+    .subject-btn:hover { transform:translateY(-5px); border-color:#c45b2d; box-shadow:0 10px 25px rgba(196,91,45,0.2); color:#c45b2d; }
+    .subject-btn:active { transform:translateY(-2px); }
+
+    /* Display Subject */
+    .subject-display {
+      position:relative;
+      max-width:600px;
+      margin:0 auto 28px;
+      padding:30px;
+      background:linear-gradient(180deg,#fffefb,#fff8ee);
+      border-radius:16px;
+      border:2px solid #f3d4b3;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:24px;
+      box-shadow:0 15px 35px rgba(0,0,0,0.1);
+      animation:fadeInUp 0.5s ease;
+    }
+    @keyframes fadeInUp { from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
+    .subject-display img { width:100%; max-width:400px; height:auto; aspect-ratio:16/10; object-fit:cover; border-radius:12px; border:2px solid rgba(196,91,45,0.2); box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+    .subject-message { font-size:1.2rem; color:#4b3726; line-height:1.8; text-align:center; padding:0 10px; }
+    .subject-display[aria-hidden="true"] { display:none; }
+
+    /* Falling letters */
+    .falling-letter {
+      position: fixed; font-size:24px; color:#c45b2d; pointer-events:none; z-index:1000; font-weight:bold;
+      text-shadow:2px 2px 4px rgba(0,0,0,0.2); animation: fall linear forwards;
+    }
+    @keyframes fall { 0%{transform:translateY(-100px) rotate(0deg); opacity:1;} 100%{transform:translateY(calc(100vh+100px)) rotate(360deg); opacity:0;} }
+
+    /* Floating wishes */
+    .floating-wish {
+      position: fixed; font-size:14px; color:#6b4f36; pointer-events:none; z-index:999;
+      background: rgba(255,255,255,0.9); padding:8px 12px; border-radius:20px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.15); border:1px solid #f3d4b3;
+      animation: floatUp 4s ease-out forwards; max-width:200px; text-align:center;
+    }
+    @keyframes floatUp { 0%{transform:translateY(0) scale(0.8);opacity:0;} 10%{opacity:1; transform:translateY(-10px) scale(1);} 90%{opacity:1;} 100%{transform:translateY(-100px) scale(0.8);opacity:0;} }
+
+    /* Music Control */
+    .music-control {
+      position: fixed; bottom:20px; right:20px; width:50px;height:50px; border-radius:50%;
+      background:linear-gradient(135deg,#c45b2d,#e67e22); border:2px solid #fff;
+      box-shadow:0 4px 15px rgba(0,0,0,0.2); cursor:pointer; display:flex; align-items:center; justify-content:center;
+      font-size:24px; color:#fff; z-index:1000; transition:all 0.3s ease;
+    }
+    .music-control:hover{transform:scale(1.1);}
+    .music-control.playing{animation:pulse 2s infinite;}
+    @keyframes pulse{0%,100%{transform:scale(1);} 50%{transform:scale(1.05);}}
+    .music-control.muted{opacity:0.6; background:linear-gradient(135deg,#7a5b43,#6b4f36);}
+
+    /* Music prompt */
+    .music-prompt {
+      position:fixed; top:0; left:0; width:100%; height:100%;
+      background:rgba(0,0,0,0.7); display:flex; align-items:center; justify-content:center;
+      z-index:10000; animation:fadeIn 0.3s ease;
+    }
+    .music-prompt.hidden{display:none;}
+    .music-prompt-content {
+      background:linear-gradient(180deg,#fffefb,#fff8ee);
+      padding:30px 40px; border-radius:16px; border:2px solid #f3d4b3;
+      box-shadow:0 15px 35px rgba(0,0,0,0.3); text-align:center; max-width:400px;
+    }
+    .music-prompt-content h3{ color:#c45b2d; margin-bottom:15px; font-size:1.5rem; }
+    .music-prompt-content p{ color:#4b3726; margin-bottom:20px; line-height:1.6; }
+    .music-prompt-btn {
+      background:linear-gradient(135deg,#c45b2d,#e67e22); color:#fff; border:none;
+      padding:12px 30px; border-radius:25px; font-size:1.1rem; cursor:pointer;
+      box-shadow:0 4px 15px rgba(196,91,45,0.3); transition:all 0.3s ease;
+    }
+    .music-prompt-btn:hover{transform:translateY(-2px);}
+    @keyframes fadeIn{from{opacity:0;} to{opacity:1;}}
+
+    @media(max-width:768px){
+      .hero h1{ font-size:2rem; }
+      .subject-display{ padding:20px; }
+      .subject-display img{ max-width:100%; }
+      .subject-message{ font-size:1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <h1>🎉 Chúc mừng ngày Nhà giáo Việt Nam 20/11 🎉</h1>
+    <p>Tri ân những người thầy, người cô đáng kính</p>
+  </div>
+
+  <section class="question-section">
+    <label class="question-label">Thầy/cô là giáo viên bộ môn gì?</label>
+    <div class="subjects-grid" id="subjectsGrid"></div>
+  </section>
+
+  <div id="subjectDisplay" class="subject-display" aria-hidden="true"></div>
+
+  <audio id="backgroundMusic" loop preload="auto">
+    <source src="audio.mp3" type="audio/mpeg">
+  </audio>
+
+  <button id="musicToggle" class="music-control" aria-label="Bật/Tắt nhạc">🎵</button>
+
+  <div id="musicPrompt" class="music-prompt hidden">
+    <div class="music-prompt-content">
+      <h3>🎵 Bật nhạc nền</h3>
+      <p>Nhấn nút bên dưới để phát nhạc chúc mừng ngày 20/11</p>
+      <button class="music-prompt-btn" onclick="startMusicFromPrompt()">Phát nhạc</button>
+    </div>
+  </div>
+
+  <script>
+    const subjects = [
+      { id:'toan', name:'Toán', color:'#f4a261', images:'images/toan.jpg', messages:[
+        "Kính gửi cô Nga, chúc cô luôn mạnh khỏe, hạnh phúc và nhiệt huyết với Toán học."
+      ]},
+      { id:'sinh', name:'Sinh', color:'#2a9d8f', images:'images/sinh.jpg', messages:[
+        "Kính gửi thầy Tuấn, chúc thầy ngày 20/11 tràn đầy sức khỏe và niềm vui."
+      ]},
+      { id:'hoa', name:'Hóa', color:'#e76f51', images:'images/hoa.jpg', messages:[
+        "Kính gửi cô Lĩnh, cảm ơn cô đã truyền cảm hứng với môn Hóa học."
+      ]},
+      { id:'dia', name:'Địa', color:'#8ab17d', images:'images/dia.jpg', messages:[
+        "Cô Huyễn ơi, chúc cô ngày 20/11 thật vui vẻ và đầy năng lượng."
+      ]},
+      { id:'van', name:'Văn', color:'#264653', images:'images/van.jpg', messages:[
+        "Kính gửi thầy Chiến, chúc thầy luôn truyền cảm hứng yêu thích Văn học."
+      ]},
+      { id:'su', name:'Sử', color:'#9b59b6', images:'images/su.jpg', messages:[
+        "Kính gửi cô Linh, chúc cô luôn nhiệt huyết và mạnh khỏe."
+      ]},
+      { id:'cn', name:'Công Nghệ', color:'#3498db', images:'images/congnghe.jpg', messages:[
+        "Kính gửi thầy Khang, cảm ơn thầy đã truyền kiến thức Công Nghệ."
+      ]},
+      { id:'anh', name:'Anh', color:'#e67e22', images:'images/anh.jpg', messages:[
+        "Kính gửi cô Hương, chúc cô luôn nhiệt huyết trong dạy Anh văn."
+      ]},
+      { id:'gd', name:'GDĐP', color:'#f39c12', images:'images/GDĐP.jpg', messages:[
+        "Kính gửi cô Linh, chúc cô sức khỏe và luôn truyền cảm hứng GDĐP."
+      ]},
+      { id:'td', name:'Thể Dục', color:'#1abc9c', images:'images/theduc.jpg', messages:[
+        "Kính gửi thầy Long,Nhân ngày Nhà giáo Việt Nam 20/11, em xin gửi tới thầy lời chúc sức khỏe dồi dào, hạnh phúc viên mãn và luôn nhiệt huyết trong sự nghiệp giảng dạy. Cảm ơn thầy đã tận tâm hướng dẫn chúng em rèn luyện sức khỏe và tinh thần, giúp học trò mạnh mẽ hơn cả về thể chất lẫn tinh thần."
+      ]},
+      { id:'gdqp', name:'GDQP', color:'#16a085', images:'images/gdqp.jpg', messages:[
+        "Kính gửi thầy Long,Nhân ngày Nhà giáo Việt Nam 20/11, em xin gửi tới thầy lời chúc sức khỏe dồi dào, hạnh phúc viên mãn và luôn tràn đầy nhiệt huyết trong sự nghiệp giảng dạy. Cảm ơn thầy đã tận tâm hướng dẫn chúng em về Giáo dục Quốc phòng, giúp học trò rèn luyện kỷ luật, tinh thần trách nhiệm và ý thức bảo vệ Tổ quốc."
+      ]}
+    ];
+
+    const additionalWishes = [
+      'Cảm ơn thầy/cô!', 'Chúc thầy/cô sức khỏe!', 'Thầy/cô tuyệt vời nhất!',
+      'Mãi yêu thầy/cô!', 'Chúc thầy/cô hạnh phúc!', 'Thầy/cô là người truyền cảm hứng!',
+      'Cảm ơn vì tất cả!', 'Chúc thầy/cô thành công!', 'Thầy/cô là người thầy tuyệt vời!',
+      'Mãi nhớ ơn thầy/cô!'
+    ];
+
+    function createFallingLetters(){
+      const letters = ['❤️','💐','🌹','🎉','⭐','✨','💝','🎁'];
+      const interval = setInterval(()=>{
+        const letter = document.createElement('div');
+        letter.className='falling-letter';
+        letter.textContent = letters[Math.floor(Math.random()*letters.length)];
+        letter.style.left = Math.random()*100+'%';
+        letter.style.animationDuration=(Math.random()*3+2)+'s';
+        document.body.appendChild(letter);
+        setTimeout(()=>letter.remove(),5000);
+      },300);
+      setTimeout(()=>clearInterval(interval),10000);
+    }
+
+    function createFloatingWish(message){
+      const wish = document.createElement('div');
+      wish.className='floating-wish';
+      wish.textContent = message;
+      wish.style.left=Math.random()*(window.innerWidth-200)+'px';
+      wish.style.top=window.innerHeight+'px';
+      document.body.appendChild(wish);
+      setTimeout(()=>wish.remove(),4000);
+    }
+
+    function showSubject(subject){
+      const display = document.getElementById('subjectDisplay');
+      display.innerHTML='';
+      const message = subject.messages[Math.floor(Math.random()*subject.messages.length)];
+      const img = document.createElement('img');
+      img.alt = subject.name;
+      img.src = subject.images;
+      const messageEl = document.createElement('div');
+      messageEl.className='subject-message';
+      messageEl.textContent = message;
+      display.appendChild(img);
+      display.appendChild(messageEl);
+      display.setAttribute('aria-hidden','false');
+
+      createFallingLetters();
+      const wishInterval = setInterval(()=>{
+        createFloatingWish(additionalWishes[Math.floor(Math.random()*additionalWishes.length)]);
+      },800);
+      setTimeout(()=>clearInterval(wishInterval),8000);
+    }
+
+    const grid = document.getElementById('subjectsGrid');
+    subjects.forEach(subject=>{
+      const btn = document.createElement('button');
+      btn.className='subject-btn';
+      btn.textContent=subject.name;
+      btn.addEventListener('click',()=>showSubject(subject));
+      grid.appendChild(btn);
+    });
+
+    const music = document.getElementById('backgroundMusic');
+    const musicToggle = document.getElementById('musicToggle');
+    const musicPrompt = document.getElementById('musicPrompt');
+
+    function startMusicFromPrompt(){
+      music.play();
+      musicToggle.classList.add('playing');
+      musicPrompt.classList.add('hidden');
+    }
+
+    musicToggle.addEventListener('click',()=>{
+      if(music.paused){ music.play(); musicToggle.classList.add('playing'); }
+      else{ music.pause(); musicToggle.classList.remove('playing'); }
+    });
+
+    window.addEventListener('load',()=>{ musicPrompt.classList.remove('hidden'); });
+  </script>
+
+</body>
+</html>
