@@ -397,66 +397,75 @@
 // Subjects data with images, colors, and messages
 const subjects = [
   {
+    id: 'sinh',
+    name: 'Sinh',
+    color: '#f4a261',
+    image: 'images/sinh.jpg',
+    messages: [
+      '“Kính gửi thầy Tuấn, Nhân ngày Nhà giáo Việt Nam 20/11, em xin gửi tới thầy lời chúc sức khỏe dồi dào, hạnh phúc viên mãn và luôn giữ được đam mê trong sự nghiệp giảng dạy. Cảm ơn thầy đã tận tâm truyền kiến thức về công nghệ trồng trọt, giúp chúng em hiểu biết và yêu thích nông nghiệp hiện đại hơn.”',
+    ]
+  },
+  {
     id: 'toan',
     name: 'Toán',
-    color: '#f4a261',
+    color: '#2a9d8f',
     image: 'images/toan.jpg',
     messages: [
-      'Kính gửi cô Nga,Nhân ngày Nhà giáo Việt Nam 20/11, em xin gửi đến cô lời chúc sức khỏe, hạnh phúc và luôn tràn đầy nhiệt huyết trong sự nghiệp trồng người. Cảm ơn cô đã tận tâm giảng dạy, giúp chúng em yêu thích Toán học và luôn cố gắng trong học tập.'
-  ]
+      '“Kính gửi cô Nga,Nhân ngày Nhà giáo Việt Nam 20/11, em xin gửi đến cô lời chúc sức khỏe, hạnh phúc và luôn tràn đầy nhiệt huyết trong sự nghiệp trồng người. Cảm ơn cô đã tận tâm giảng dạy, giúp chúng em yêu thích Toán học và luôn cố gắng trong học tập.”',
+    ]
   },
   {
     id: 'hoa',
-    name: 'Hoá',
-    color: '#2a9d8f',
+    name: 'Hóa',
+    color: '#e76f51',
     image: 'images/hoa.jpg',
     messages: [
-      'Kính gửi cô Lĩnh,Nhân ngày Nhà giáo Việt Nam 20/11, em xin gửi tới cô lời chúc sức khỏe dồi dào, hạnh phúc viên mãn và luôn tràn đầy nhiệt huyết trong sự nghiệp giảng dạy. Cảm ơn cô đã tận tâm hướng dẫn chúng em yêu thích Hóa học, từ những phản ứng hóa học đến các thí nghiệm thú vị.'
-  ]
+      '“Chúc cô Lĩnh luôn mạnh khỏe, hạnh phúc và tràn đầy nhiệt huyết trong sự nghiệp giảng dạy. Cảm ơn cô vì những bài học Hóa học đầy logic và thực tiễn, giúp chúng em hiểu hơn về thế giới vi mô đầy kỳ diệu.”',
+    ]
   },
   {
-    id: 'sinh',
-    name: 'Sinh',
-    color: '#e76f51',
-    image: 'images/sinh.jpg',
-    messages: [
-      'Kính gửi thầy Tuấn,Nhân ngày Nhà giáo Việt Nam 20/11, em xin gửi tới thầy lời chúc sức khỏe dồi dào, hạnh phúc viên mãn và luôn giữ được ngọn lửa đam mê trong sự nghiệp trồng người. Cảm ơn thầy đã tận tâm dạy dỗ và truyền cảm hứng cho chúng em yêu thích môn Sinh học.'
-  ]
-  },
-  {
-    id: 'cong nghe',
-    name: 'Cong Nghe',
+    id: 'td',
+    name: 'Thể Dục',
     color: '#8ab17d',
-    image: 'images/congnghe.jpg',
+    image: 'images/theduc.jpg',
     messages: [
-      'Kính gửi thầy Tuấn,Nhân ngày Nhà giáo Việt Nam 20/11, em xin gửi tới thầy lời chúc sức khỏe dồi dào, hạnh phúc viên mãn và luôn giữ được đam mê trong sự nghiệp giảng dạy. Cảm ơn thầy đã tận tâm truyền kiến thức về công nghệ trồng trọt, giúp chúng em hiểu biết và yêu thích nông nghiệp hiện đại hơn.'
-  ]
-  },
-  {
-    id: 'van',
-    name: 'Văn',
-    color: '#264653',
-    image: 'images/van.jpg',
-    messages: [
-      'Kính gửi thầy Chiến,Nhân ngày Nhà giáo Việt Nam 20/11, em xin gửi tới thầy lời chúc sức khỏe dồi dào, hạnh phúc viên mãn và luôn tràn đầy nhiệt huyết trong sự nghiệp giảng dạy. Cảm ơn thầy đã truyền cảm hứng, giúp chúng em yêu thích Văn học và biết cách cảm nhận, thấu hiểu cuộc sống qua từng câu chữ.'
-  ]
+      '“Kính gửi thầy Long,Nhân ngày Nhà giáo Việt Nam 20/11, em xin gửi tới thầy lời chúc sức khỏe dồi dào, hạnh phúc viên mãn và luôn nhiệt huyết trong sự nghiệp giảng dạy. Cảm ơn thầy đã tận tâm hướng dẫn chúng em rèn luyện sức khỏe và tinh thần, giúp học trò mạnh mẽ hơn cả về thể chất lẫn tinh thần.”',
+    ]
   },
   {
     id: 'su',
     name: 'Sử',
-    color: '#9b59b6',
+    color: '#264653',
     image: 'images/su.jpg',
     messages: [
-      'Kính gửi cô Linh,Nhân ngày Nhà giáo Việt Nam 20/11, em xin gửi tới cô lời chúc sức khỏe dồi dào, hạnh phúc viên mãn và luôn tràn đầy nhiệt huyết trong sự nghiệp giảng dạy. Cảm ơn cô đã tận tâm hướng dẫn, giúp chúng em hiểu rõ lịch sử dân tộc và biết trân trọng quá khứ để vươn tới tương lai.'
+      '“Kính gửi cô Linh,Nhân ngày Nhà giáo Việt Nam 20/11, em xin gửi tới cô lời chúc sức khỏe dồi dào, hạnh phúc viên mãn và luôn tràn đầy nhiệt huyết trong sự nghiệp giảng dạy. Cảm ơn cô đã tận tâm hướng dẫn, giúp chúng em hiểu rõ lịch sử dân tộc và biết trân trọng quá khứ để vươn tới tương lai.”',
+    ]
+  },
+  {
+    id: 'gddp',
+    name: 'GDĐP',
+    color: '#9b59b6',
+    image: 'images/GDĐP.jpg',
+    messages: [
+      '“Kính gửi cô Linh,Nhân ngày Nhà giáo Việt Nam 20/11, em xin gửi tới cô lời chúc sức khỏe dồi dào, hạnh phúc viên mãn và luôn tràn đầy nhiệt huyết trong sự nghiệp giảng dạy. Cảm ơn cô đã tận tâm hướng dẫn chúng em hiểu biết về địa phương, văn hóa và những giá trị truyền thống quý báu.”',
+    ]
+  },
+  {
+    id: 'gdqp',
+    name: 'GDQP',
+    color: '#3498db',
+    image: 'images/gdqp.jpg',
+    messages: [
+      '“Kính gửi thầy Long,Nhân ngày Nhà giáo Việt Nam 20/11, em xin gửi tới thầy lời chúc sức khỏe dồi dào, hạnh phúc viên mãn và luôn tràn đầy nhiệt huyết trong sự nghiệp giảng dạy. Cảm ơn thầy đã tận tâm hướng dẫn chúng em về Giáo dục Quốc phòng, giúp học trò rèn luyện kỷ luật, tinh thần trách nhiệm và ý thức bảo vệ Tổ quốc.”',
     ]
   },
   {
     id: 'anh',
     name: 'Anh',
-    color: '#3498db',
+    color: '#e67e22',
     image: 'images/anh.jpg',
     messages: [
-      'Kính gửi cô Hương,Nhân ngày Nhà giáo Việt Nam 20/11, em xin gửi tới cô lời chúc sức khỏe dồi dào, hạnh phúc viên mãn và luôn nhiệt huyết trong sự nghiệp giảng dạy. Cảm ơn cô đã tận tâm hướng dẫn chúng em học Tiếng Anh, giúp mở ra cánh cửa tri thức và cơ hội giao tiếp toàn cầu.'
+      '“Kính gửi cô Hương,Nhân ngày Nhà giáo Việt Nam 20/11, em xin gửi tới cô lời chúc sức khỏe dồi dào, hạnh phúc viên mãn và luôn nhiệt huyết trong sự nghiệp giảng dạy. Cảm ơn cô đã tận tâm hướng dẫn chúng em học Tiếng Anh, giúp mở ra cánh cửa tri thức và cơ hội giao tiếp toàn cầu.”',
     ]
   },
   {
@@ -465,19 +474,30 @@ const subjects = [
     color: '#e67e22',
     image: 'images/dia.jpg',
     messages: [
-      'Kính gửi cô Huyễn,Nhân ngày Nhà giáo Việt Nam 20/11, em xin gửi tới cô lời chúc sức khỏe dồi dào, hạnh phúc viên mãn và luôn nhiệt huyết trong sự nghiệp giảng dạy. Cảm ơn cô đã tận tâm truyền đạt kiến thức Địa Lý, giúp chúng em hiểu rõ hơn về thế giới xung quanh và yêu môn học này.'
+      '“Kính gửi cô Huyễn,Nhân ngày Nhà giáo Việt Nam 20/11, em xin gửi tới cô lời chúc sức khỏe dồi dào, hạnh phúc viên mãn và luôn nhiệt huyết trong sự nghiệp giảng dạy. Cảm ơn cô đã tận tâm truyền đạt kiến thức Địa Lý, giúp chúng em hiểu rõ hơn về thế giới xung quanh và yêu môn học này.”',
     ]
   },
   {
-    id: 'the duc',
-    name: 'Thể Dục',
-    color: '#3498db',
-    image: 'images/theduc.jpg',
+    id: 'cn',
+    name: 'Công Nghệ',
+    color: '#e67e22',
+    image: 'images/congnghe.jpg',
     messages: [
-      'Kính gửi thầy Long,Nhân ngày Nhà giáo Việt Nam 20/11, em xin gửi tới thầy lời chúc sức khỏe dồi dào, hạnh phúc viên mãn và luôn nhiệt huyết trong sự nghiệp giảng dạy. Cảm ơn thầy đã tận tâm hướng dẫn chúng em rèn luyện sức khỏe và tinh thần, giúp học trò mạnh mẽ hơn cả về thể chất lẫn tinh thần.'
-    ] 
-  }
-]
+      '“Kính gửi thầy Tuấn,Nhân ngày Nhà giáo Việt Nam 20/11, em xin gửi tới thầy lời chúc sức khỏe dồi dào, hạnh phúc viên mãn và luôn giữ được đam mê trong sự nghiệp giảng dạy. Cảm ơn thầy đã tận tâm truyền kiến thức về công nghệ trồng trọt, giúp chúng em hiểu biết và yêu thích nông nghiệp hiện đại hơn.”',
+    ]
+  },
+  {
+    id: 'van',
+    name: 'Văn',
+    color: '#d35400',
+    image: 'images/van1.jpg',
+    messages: [
+      '“ Kính gửi thầy Chiến,Nhân ngày Nhà giáo Việt Nam 20/11, em xin gửi tới thầy lời chúc sức khỏe dồi dào, hạnh phúc viên mãn và luôn tràn đầy nhiệt huyết trong sự nghiệp giảng dạy. Cảm ơn thầy đã truyền cảm hứng, giúp chúng em yêu thích Văn học và biết cách cảm nhận, thấu hiểu cuộc sống qua từng câu chữ.”',
+    ]
+},
+
+];
+
 // Create SVG image from subject data
 function createSubjectImage(subject) {
   const svg = `
