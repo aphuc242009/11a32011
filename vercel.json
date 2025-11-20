@@ -4,5 +4,8 @@
     { "src": "index.html", "use": "@vercel/static" },
     { "src": "audio.mp3", "use": "@vercel/static" },
     { "src": "image/**", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
